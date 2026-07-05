@@ -35,22 +35,22 @@ If this project helps you, please **star the repo**, **watch it for breakage upd
 
 ### Demo videos
 
+<div align="center">
+
 <table>
   <tr>
-    <td width="50%">
-      <strong>Demo video A</strong><br>
-      <a href="docs/assets/claude-web-chat-conversation-exporter_v013_a.mp4">
-        Watch demo video A
-      </a>
+    <td width="50%" align="center">
+      <strong>Part A</strong><br>
+      <video src="docs/assets/claude-web-chat-conversation-exporter_v013_a.mp4" width="100%" controls></video>
     </td>
-    <td width="50%">
-      <strong>Demo video B</strong><br>
-      <a href="docs/assets/claude-web-chat-conversation-exporter_v013_b.mp4">
-        Watch demo video B
-      </a>
+    <td width="50%" align="center">
+      <strong>Part B</strong><br>
+      <video src="docs/assets/claude-web-chat-conversation-exporter_v013_b.mp4" width="100%" controls></video>
     </td>
   </tr>
 </table>
+
+</div>
 
 ---
 
