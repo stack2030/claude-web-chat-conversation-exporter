@@ -41,11 +41,11 @@ If this project helps you, please **star the repo**, **watch it for breakage upd
   <tr>
     <td width="50%" align="center">
       <strong>Part A</strong><br>
-      <video src="docs/assets/claude-web-chat-conversation-exporter_v013_a.mp4" width="100%" controls></video>
+      <img src="docs/assets/claude-web-chat-conversation-exporter_v013_a.gif" alt="Claude Web Chat Conversation Exporter demo part A" width="100%">
     </td>
     <td width="50%" align="center">
       <strong>Part B</strong><br>
-      <video src="docs/assets/claude-web-chat-conversation-exporter_v013_b.mp4" width="100%" controls></video>
+      <img src="docs/assets/claude-web-chat-conversation-exporter_v013_b.gif" alt="Claude Web Chat Conversation Exporter demo part B" width="100%">
     </td>
   </tr>
 </table>
