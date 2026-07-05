@@ -1,0 +1,66 @@
+---
+name: Bug report
+description: Report a problem with the Claude Web Chat Conversation Exporter
+title: "Bug: "
+labels: ["type:bug", "status:needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug. Do not paste private Claude conversation content unless you intentionally choose to share it.
+  - type: input
+    id: version
+    attributes:
+      label: Exporter version
+      description: Example: 0.1.0
+      placeholder: "0.1.0"
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Browser
+      description: Browser and version if known.
+      placeholder: "Chrome 126 / Edge / Brave / etc."
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+      placeholder: "Windows 11 / macOS / Linux"
+    validations:
+      required: false
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Describe the failure.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: console
+    attributes:
+      label: Console output
+      description: Paste relevant console output. Remove private data first.
+      render: text
+    validations:
+      required: false
+  - type: dropdown
+    id: export-result
+    attributes:
+      label: Export result
+      options:
+        - Complete Markdown file downloaded
+        - Partial Markdown file downloaded
+        - No file downloaded
+        - Script did not start
+        - Other
+    validations:
+      required: true

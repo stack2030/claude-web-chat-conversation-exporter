@@ -1,0 +1,61 @@
+---
+name: Claude UI breakage
+description: Report that Claude.ai changed and export no longer works
+title: "Claude UI breakage: "
+labels: ["type:provider-breakage", "status:needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this when Claude.ai changes its web interface and the exporter breaks. Remove private conversation content from screenshots/logs.
+  - type: input
+    id: tested-date
+    attributes:
+      label: Date tested
+      placeholder: "YYYY-MM-DD"
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Browser
+      placeholder: "Chrome / Edge / Brave + version if known"
+    validations:
+      required: true
+  - type: dropdown
+    id: failure-mode
+    attributes:
+      label: Failure mode
+      options:
+        - No messages captured
+        - Partial export
+        - No copy buttons found
+        - Script stops mid-export
+        - Download missing
+        - Wrong message order
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: overlay
+    attributes:
+      label: Overlay status
+      description: What did the top-right exporter overlay show?
+      render: text
+    validations:
+      required: false
+  - type: textarea
+    id: console
+    attributes:
+      label: Console output
+      description: Paste relevant console output. Remove private data first.
+      render: text
+    validations:
+      required: false
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional notes
+      description: Anything else useful for reproducing the issue.
+    validations:
+      required: false

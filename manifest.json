@@ -1,0 +1,17 @@
+{
+  "package": "claude-web-chat-conversation-exporter-public-docs",
+  "created_for": "stack2030/claude-web-chat-conversation-exporter",
+  "visibility": "public",
+  "private_workflow_details_included": false,
+  "files": [
+    ".github/ISSUE_TEMPLATE/bug_report.yml",
+    ".github/ISSUE_TEMPLATE/claude_ui_breakage.yml",
+    ".github/ISSUE_TEMPLATE/config.yml",
+    ".github/ISSUE_TEMPLATE/feature_request.yml",
+    "CHANGELOG.md",
+    "DISCLAIMER.md",
+    "README.md",
+    "SECURITY.md",
+    "docs/index.md"
+  ]
+}
