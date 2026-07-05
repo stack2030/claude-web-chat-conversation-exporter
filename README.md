@@ -6,6 +6,52 @@ If this project helps you, please **star the repo**, **watch it for breakage upd
 
 > Status: **Working as of 2026-07** on the Claude.ai web chat interface tested by the maintainer. If Claude changes the web UI and export breaks, open an issue using the provided issue template.
 
+### Screenshots
+
+<table>
+  <tr>
+    <td width="33%">
+      <img src="docs/assets/claude-web-chat-conversation-exporter_v013_01.png" alt="Claude Web Chat Conversation Exporter screenshot 1" width="100%">
+    </td>
+    <td width="33%">
+      <img src="docs/assets/claude-web-chat-conversation-exporter_v013_02.png" alt="Claude Web Chat Conversation Exporter screenshot 2" width="100%">
+    </td>
+    <td width="33%">
+      <img src="docs/assets/claude-web-chat-conversation-exporter_v013_03.png" alt="Claude Web Chat Conversation Exporter screenshot 3" width="100%">
+    </td>
+  </tr>
+  <tr>
+    <td width="33%">
+      <img src="docs/assets/claude-web-chat-conversation-exporter_v013_04.png" alt="Claude Web Chat Conversation Exporter screenshot 4" width="100%">
+    </td>
+    <td width="33%">
+      <img src="docs/assets/claude-web-chat-conversation-exporter_v013_05.png" alt="Claude Web Chat Conversation Exporter screenshot 5" width="100%">
+    </td>
+    <td width="33%">
+      <img src="docs/assets/claude-web-chat-conversation-exporter_v013_06.png" alt="Claude Web Chat Conversation Exporter exported Markdown screenshot" width="100%">
+    </td>
+  </tr>
+</table>
+
+### Demo videos
+
+<table>
+  <tr>
+    <td width="50%">
+      <strong>Demo video A</strong><br>
+      <a href="docs/assets/claude-web-chat-conversation-exporter_v013_a.mp4">
+        Watch demo video A
+      </a>
+    </td>
+    <td width="50%">
+      <strong>Demo video B</strong><br>
+      <a href="docs/assets/claude-web-chat-conversation-exporter_v013_b.mp4">
+        Watch demo video B
+      </a>
+    </td>
+  </tr>
+</table>
+
 ---
 
 ## What this is
