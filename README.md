@@ -1,6 +1,26 @@
 # Claude Web Chat Conversation Exporter
 
+
 **Private, local Claude.ai web chat conversation export. Save your Claude conversations as Markdown from your browser, without sending your chat history anywhere else.**
+
+<p align="left">
+  <a href="https://github.com/stack2030/claude-web-chat-conversation-exporter/releases">
+    <img alt="Release" src="https://img.shields.io/github/v/release/stack2030/claude-web-chat-conversation-exporter?label=release&color=0969da">
+  </a>
+  <a href="https://github.com/stack2030/claude-web-chat-conversation-exporter/blob/main/LICENSE">
+    <img alt="License" src="https://img.shields.io/github/license/stack2030/claude-web-chat-conversation-exporter?color=0969da">
+  </a>
+  <a href="https://github.com/stack2030/claude-web-chat-conversation-exporter">
+    <img alt="JavaScript" src="https://img.shields.io/badge/language-JavaScript-F7DF1E?logo=javascript&logoColor=black">
+  </a>
+  <a href="https://github.com/stack2030/claude-web-chat-conversation-exporter/blob/main/SECURITY.md">
+    <img alt="Security model documented" src="https://img.shields.io/badge/security%20model-documented-0E8A16">
+  </a>
+  <a href="https://github.com/stack2030/claude-web-chat-conversation-exporter">
+    <img alt="Auditable source" src="https://img.shields.io/badge/source-auditable-5319E7">
+  </a>
+</p>
+
 
 If this project helps you, please **star the repo**, **watch it for breakage updates**, and **share it with people who live inside AI chats all day**. Claude changes fast. The more people watch and report issues, the faster this stays useful.
 
