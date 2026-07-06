@@ -21,7 +21,9 @@
 
   <script>
     (function () {
-      const savedTheme = localStorage.getItem("stack2030-claude-exporter-theme");
+      const storageKey = "stack2030-claude-exporter-theme-v2";
+      const savedTheme = localStorage.getItem(storageKey);
+
       document.documentElement.dataset.theme =
         savedTheme === "light" || savedTheme === "dark" ? savedTheme : "system";
     })();
@@ -39,9 +41,9 @@
         <a href="https://github.com/stack2030/claude-web-chat-conversation-exporter/issues">Issues</a>
 
         <div class="theme-controls" aria-label="Theme selector">
-          <button type="button" class="theme-button" data-set-theme="system">System</button>
-          <button type="button" class="theme-button" data-set-theme="light">Light</button>
-          <button type="button" class="theme-button" data-set-theme="dark">Dark</button>
+          <button type="button" class="theme-button" data-set-theme="system" aria-pressed="true">System</button>
+          <button type="button" class="theme-button" data-set-theme="light" aria-pressed="false">Light</button>
+          <button type="button" class="theme-button" data-set-theme="dark" aria-pressed="false">Dark</button>
         </div>
       </nav>
     </div>
@@ -50,7 +52,7 @@
   <main>
     <section class="hero container">
       <div class="hero-copy">
-        <p class="eyebrow">Local-first · Auditable · Privacy-preserving</p>
+        <p class="eyebrow">Local-first &middot; Auditable &middot; Privacy-preserving</p>
 
         <h1>Export Claude.ai web chats to Markdown without installing a browser extension.</h1>
 
@@ -248,7 +250,7 @@
         Independent open-source project. Not affiliated with, endorsed by, sponsored by, or officially associated with Anthropic.
       </p>
       <p>
-        <a href="https://stack2030.github.io/">Stack2030</a> ·
+        <a href="https://stack2030.github.io/">Stack2030</a> &middot;
         <a href="https://github.com/stack2030">GitHub</a>
       </p>
     </div>
@@ -259,16 +261,15 @@
       const root = document.documentElement;
       const buttons = Array.from(document.querySelectorAll("[data-set-theme]"));
       const previewImage = document.getElementById("heroPreviewImage");
-      const storageKey = "stack2030-claude-exporter-theme";
+      const storageKey = "stack2030-claude-exporter-theme-v2";
       const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
       const lightPreview = "assets/github_com_stack2030_claude-web-chat-conversation-exporter_preview_light.png";
       const darkPreview = "assets/github_com_stack2030_claude-web-chat-conversation-exporter_preview_dark.png";
 
       function getConfiguredTheme() {
-        return root.dataset.theme === "light" || root.dataset.theme === "dark"
-          ? root.dataset.theme
-          : "system";
+        const value = root.dataset.theme;
+        return value === "light" || value === "dark" ? value : "system";
       }
 
       function getEffectiveTheme() {
@@ -281,11 +282,7 @@
         return mediaQuery.matches ? "dark" : "light";
       }
 
-      function updatePreviewImage() {
-        previewImage.src = getEffectiveTheme() === "dark" ? darkPreview : lightPreview;
-      }
-
-      function updateButtons() {
+      function updateThemeControls() {
         const configuredTheme = getConfiguredTheme();
 
         buttons.forEach(function (button) {
@@ -293,6 +290,14 @@
           button.classList.toggle("active", isActive);
           button.setAttribute("aria-pressed", isActive ? "true" : "false");
         });
+      }
+
+      function updatePreviewImage() {
+        if (!previewImage) {
+          return;
+        }
+
+        previewImage.src = getEffectiveTheme() === "dark" ? darkPreview : lightPreview;
       }
 
       function applyTheme(theme) {
@@ -306,7 +311,7 @@
           localStorage.setItem(storageKey, normalizedTheme);
         }
 
-        updateButtons();
+        updateThemeControls();
         updatePreviewImage();
       }
 
