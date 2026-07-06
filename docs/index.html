@@ -1,21 +1,50 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="system">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Claude Web Chat Conversation Exporter</title>
   <meta name="description" content="Private local Claude.ai web chat conversation exporter. Save Claude conversations as Markdown using auditable browser-side JavaScript.">
+
+  <meta property="og:title" content="Claude Web Chat Conversation Exporter">
+  <meta property="og:description" content="Export Claude.ai web chats locally as Markdown. No extension, no backend, no analytics.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://stack2030.github.io/claude-web-chat-conversation-exporter/">
+  <meta property="og:image" content="https://stack2030.github.io/claude-web-chat-conversation-exporter/assets/github_com_stack2030_claude-web-chat-conversation-exporter_preview_light.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Claude Web Chat Conversation Exporter">
+  <meta name="twitter:description" content="Export Claude.ai web chats locally as Markdown. No extension, no backend, no analytics.">
+  <meta name="twitter:image" content="https://stack2030.github.io/claude-web-chat-conversation-exporter/assets/github_com_stack2030_claude-web-chat-conversation-exporter_preview_light.png">
+
   <link rel="stylesheet" href="assets/css/site.css">
+
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem("stack2030-claude-exporter-theme");
+      const root = document.documentElement;
+
+      if (savedTheme === "light" || savedTheme === "dark") {
+        root.dataset.theme = savedTheme;
+      } else {
+        root.dataset.theme = "system";
+      }
+    })();
+  </script>
 </head>
 
 <body>
   <header class="site-header">
     <div class="container nav">
       <a class="brand" href="./">Claude Web Chat Conversation Exporter</a>
+
       <nav class="nav-links" aria-label="Primary navigation">
         <a href="https://github.com/stack2030/claude-web-chat-conversation-exporter">GitHub</a>
         <a href="https://github.com/stack2030/claude-web-chat-conversation-exporter/releases/tag/v0.1.3">Release</a>
         <a href="https://github.com/stack2030/claude-web-chat-conversation-exporter/issues">Issues</a>
+        <button class="theme-toggle" type="button" id="themeToggle" aria-label="Toggle light and dark theme">
+          Theme
+        </button>
       </nav>
     </div>
   </header>
@@ -24,10 +53,30 @@
     <section class="hero container">
       <div class="hero-copy">
         <p class="eyebrow">Local-first · Auditable · Privacy-preserving</p>
+
         <h1>Export Claude.ai web chats to Markdown without installing a browser extension.</h1>
+
         <p class="lead">
           Claude Web Chat Conversation Exporter is a small browser-console script for saving the current Claude.ai web conversation as a local Markdown file.
         </p>
+
+        <div class="badge-row" aria-label="Project badges">
+          <a href="https://github.com/stack2030/claude-web-chat-conversation-exporter/releases">
+            <img alt="Release" src="https://img.shields.io/github/v/release/stack2030/claude-web-chat-conversation-exporter?label=release&color=0969da">
+          </a>
+          <a href="https://github.com/stack2030/claude-web-chat-conversation-exporter/blob/main/LICENSE">
+            <img alt="License" src="https://img.shields.io/github/license/stack2030/claude-web-chat-conversation-exporter?color=0969da">
+          </a>
+          <a href="https://github.com/stack2030/claude-web-chat-conversation-exporter">
+            <img alt="JavaScript" src="https://img.shields.io/badge/language-JavaScript-F7DF1E?logo=javascript&logoColor=black">
+          </a>
+          <a href="https://github.com/stack2030/claude-web-chat-conversation-exporter/blob/main/SECURITY.md">
+            <img alt="Security model documented" src="https://img.shields.io/badge/security%20model-documented-0E8A16">
+          </a>
+          <a href="https://github.com/stack2030/claude-web-chat-conversation-exporter">
+            <img alt="Auditable source" src="https://img.shields.io/badge/source-auditable-5319E7">
+          </a>
+        </div>
 
         <div class="cta-row">
           <a class="button primary" href="https://github.com/stack2030/claude-web-chat-conversation-exporter">View on GitHub</a>
@@ -40,13 +89,23 @@
         </p>
       </div>
 
-      <div class="hero-image-wrap">
-        <img class="hero-image" src="assets/claude-web-chat-conversation-exporter_v013_00_Header.png" alt="Claude Web Chat Conversation Exporter interface illustration">
+      <div class="hero-preview-wrap">
+        <img
+          class="hero-preview hero-preview-light"
+          src="assets/github_com_stack2030_claude-web-chat-conversation-exporter_preview_light.png"
+          alt="Light social preview for Claude Web Chat Conversation Exporter"
+        >
+        <img
+          class="hero-preview hero-preview-dark"
+          src="assets/github_com_stack2030_claude-web-chat-conversation-exporter_preview_dark.png"
+          alt="Dark social preview for Claude Web Chat Conversation Exporter"
+        >
       </div>
     </section>
 
     <section class="section container">
       <h2>Why this exists</h2>
+
       <div class="grid three">
         <article class="card">
           <h3>Browser extensions are hard to trust</h3>
@@ -73,6 +132,7 @@
 
     <section class="section container">
       <h2>What it does</h2>
+
       <div class="feature-list">
         <div>Exports Human messages and final Claude responses.</div>
         <div>Saves the result as a local Markdown file.</div>
@@ -87,27 +147,33 @@
       <h2>Visual demo</h2>
 
       <h3>Screenshots</h3>
+
       <div class="media-grid three">
         <figure>
           <img src="assets/claude-web-chat-conversation-exporter_v013_01.png" alt="Exporter screenshot 1">
           <figcaption>Start export</figcaption>
         </figure>
+
         <figure>
           <img src="assets/claude-web-chat-conversation-exporter_v013_02.png" alt="Exporter screenshot 2">
           <figcaption>Progress overlay</figcaption>
         </figure>
+
         <figure>
           <img src="assets/claude-web-chat-conversation-exporter_v013_03.png" alt="Exporter screenshot 3">
           <figcaption>Capture complete</figcaption>
         </figure>
+
         <figure>
           <img src="assets/claude-web-chat-conversation-exporter_v013_04.png" alt="Exporter screenshot 4">
           <figcaption>Downloaded Markdown</figcaption>
         </figure>
+
         <figure>
           <img src="assets/claude-web-chat-conversation-exporter_v013_05.png" alt="Exporter screenshot 5">
           <figcaption>Exported conversation</figcaption>
         </figure>
+
         <figure>
           <img src="assets/claude-web-chat-conversation-exporter_v013_06.png" alt="Exporter screenshot 6">
           <figcaption>Local file review</figcaption>
@@ -122,6 +188,7 @@
           <img src="assets/claude-web-chat-conversation-exporter_v013_a.gif" alt="Claude Web Chat Conversation Exporter demo part A">
           <figcaption>Part A</figcaption>
         </figure>
+
         <figure>
           <img src="assets/claude-web-chat-conversation-exporter_v013_b.gif" alt="Claude Web Chat Conversation Exporter demo part B">
           <figcaption>Part B</figcaption>
@@ -131,19 +198,23 @@
 
     <section class="section container">
       <h2>Use cases</h2>
+
       <div class="grid two">
         <article class="card">
           <h3>Personal knowledge bases</h3>
           <p>Save useful Claude conversations into Obsidian, Logseq, GitHub repos, project folders, or local archives.</p>
         </article>
+
         <article class="card">
           <h3>Coding and technical work</h3>
           <p>Preserve debugging sessions, architecture decisions, code explanations, and implementation notes.</p>
         </article>
+
         <article class="card">
           <h3>Multi-AI workflows</h3>
           <p>Move conversation context between Claude, ChatGPT, Perplexity, local models, and other tools.</p>
         </article>
+
         <article class="card">
           <h3>Research and planning</h3>
           <p>Turn long AI discussions into versioned Markdown files you can search, cite, review, and reuse.</p>
@@ -153,6 +224,7 @@
 
     <section class="section container">
       <h2>Current limitations</h2>
+
       <ul class="checklist">
         <li>Markdown export only.</li>
         <li>Claude.ai web chat only.</li>
@@ -166,6 +238,7 @@
 
     <section class="section container">
       <h2>Project links</h2>
+
       <div class="cta-row">
         <a class="button primary" href="https://github.com/stack2030/claude-web-chat-conversation-exporter">GitHub repository</a>
         <a class="button" href="https://github.com/stack2030/claude-web-chat-conversation-exporter/releases/tag/v0.1.3">v0.1.3 release</a>
@@ -186,5 +259,61 @@
       </p>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      const root = document.documentElement;
+      const button = document.getElementById("themeToggle");
+      const storageKey = "stack2030-claude-exporter-theme";
+      const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+      function getEffectiveTheme() {
+        if (root.dataset.theme === "dark") return "dark";
+        if (root.dataset.theme === "light") return "light";
+        return mediaQuery.matches ? "dark" : "light";
+      }
+
+      function updateButton() {
+        const configured = root.dataset.theme;
+        const effective = getEffectiveTheme();
+
+        if (configured === "system") {
+          button.textContent = "Theme: System";
+          button.setAttribute("aria-label", "Current theme follows system setting. Click to toggle theme.");
+          button.title = "System theme active. Current effective mode: " + effective + ".";
+          return;
+        }
+
+        button.textContent = configured === "dark" ? "Theme: Dark" : "Theme: Light";
+        button.setAttribute("aria-label", "Current theme is " + configured + ". Click to toggle theme.");
+        button.title = "Current theme: " + configured + ".";
+      }
+
+      function setTheme(theme) {
+        root.dataset.theme = theme;
+
+        if (theme === "system") {
+          localStorage.removeItem(storageKey);
+        } else {
+          localStorage.setItem(storageKey, theme);
+        }
+
+        updateButton();
+      }
+
+      button.addEventListener("click", function () {
+        const effective = getEffectiveTheme();
+        setTheme(effective === "dark" ? "light" : "dark");
+      });
+
+      mediaQuery.addEventListener("change", function () {
+        if (root.dataset.theme === "system") {
+          updateButton();
+        }
+      });
+
+      updateButton();
+    })();
+  </script>
 </body>
 </html>
