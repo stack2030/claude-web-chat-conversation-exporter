@@ -22,13 +22,8 @@
   <script>
     (function () {
       const savedTheme = localStorage.getItem("stack2030-claude-exporter-theme");
-      const root = document.documentElement;
-
-      if (savedTheme === "light" || savedTheme === "dark") {
-        root.dataset.theme = savedTheme;
-      } else {
-        root.dataset.theme = "system";
-      }
+      document.documentElement.dataset.theme =
+        savedTheme === "light" || savedTheme === "dark" ? savedTheme : "system";
     })();
   </script>
 </head>
@@ -42,9 +37,12 @@
         <a href="https://github.com/stack2030/claude-web-chat-conversation-exporter">GitHub</a>
         <a href="https://github.com/stack2030/claude-web-chat-conversation-exporter/releases/tag/v0.1.3">Release</a>
         <a href="https://github.com/stack2030/claude-web-chat-conversation-exporter/issues">Issues</a>
-        <button class="theme-toggle" type="button" id="themeToggle" aria-label="Toggle light and dark theme">
-          Theme
-        </button>
+
+        <div class="theme-controls" aria-label="Theme selector">
+          <button type="button" class="theme-button" data-set-theme="system">System</button>
+          <button type="button" class="theme-button" data-set-theme="light">Light</button>
+          <button type="button" class="theme-button" data-set-theme="dark">Dark</button>
+        </div>
       </nav>
     </div>
   </header>
@@ -91,14 +89,10 @@
 
       <div class="hero-preview-wrap">
         <img
-          class="hero-preview hero-preview-light"
+          id="heroPreviewImage"
+          class="hero-preview"
           src="assets/github_com_stack2030_claude-web-chat-conversation-exporter_preview_light.png"
-          alt="Light social preview for Claude Web Chat Conversation Exporter"
-        >
-        <img
-          class="hero-preview hero-preview-dark"
-          src="assets/github_com_stack2030_claude-web-chat-conversation-exporter_preview_dark.png"
-          alt="Dark social preview for Claude Web Chat Conversation Exporter"
+          alt="Claude Web Chat Conversation Exporter social preview"
         >
       </div>
     </section>
@@ -263,56 +257,72 @@
   <script>
     (function () {
       const root = document.documentElement;
-      const button = document.getElementById("themeToggle");
+      const buttons = Array.from(document.querySelectorAll("[data-set-theme]"));
+      const previewImage = document.getElementById("heroPreviewImage");
       const storageKey = "stack2030-claude-exporter-theme";
       const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
+      const lightPreview = "assets/github_com_stack2030_claude-web-chat-conversation-exporter_preview_light.png";
+      const darkPreview = "assets/github_com_stack2030_claude-web-chat-conversation-exporter_preview_dark.png";
+
+      function getConfiguredTheme() {
+        return root.dataset.theme === "light" || root.dataset.theme === "dark"
+          ? root.dataset.theme
+          : "system";
+      }
+
       function getEffectiveTheme() {
-        if (root.dataset.theme === "dark") return "dark";
-        if (root.dataset.theme === "light") return "light";
+        const configuredTheme = getConfiguredTheme();
+
+        if (configuredTheme === "light" || configuredTheme === "dark") {
+          return configuredTheme;
+        }
+
         return mediaQuery.matches ? "dark" : "light";
       }
 
-      function updateButton() {
-        const configured = root.dataset.theme;
-        const effective = getEffectiveTheme();
-
-        if (configured === "system") {
-          button.textContent = "Theme: System";
-          button.setAttribute("aria-label", "Current theme follows system setting. Click to toggle theme.");
-          button.title = "System theme active. Current effective mode: " + effective + ".";
-          return;
-        }
-
-        button.textContent = configured === "dark" ? "Theme: Dark" : "Theme: Light";
-        button.setAttribute("aria-label", "Current theme is " + configured + ". Click to toggle theme.");
-        button.title = "Current theme: " + configured + ".";
+      function updatePreviewImage() {
+        previewImage.src = getEffectiveTheme() === "dark" ? darkPreview : lightPreview;
       }
 
-      function setTheme(theme) {
-        root.dataset.theme = theme;
+      function updateButtons() {
+        const configuredTheme = getConfiguredTheme();
 
-        if (theme === "system") {
+        buttons.forEach(function (button) {
+          const isActive = button.dataset.setTheme === configuredTheme;
+          button.classList.toggle("active", isActive);
+          button.setAttribute("aria-pressed", isActive ? "true" : "false");
+        });
+      }
+
+      function applyTheme(theme) {
+        const normalizedTheme = theme === "light" || theme === "dark" ? theme : "system";
+
+        root.dataset.theme = normalizedTheme;
+
+        if (normalizedTheme === "system") {
           localStorage.removeItem(storageKey);
         } else {
-          localStorage.setItem(storageKey, theme);
+          localStorage.setItem(storageKey, normalizedTheme);
         }
 
-        updateButton();
+        updateButtons();
+        updatePreviewImage();
       }
 
-      button.addEventListener("click", function () {
-        const effective = getEffectiveTheme();
-        setTheme(effective === "dark" ? "light" : "dark");
+      buttons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          applyTheme(button.dataset.setTheme);
+        });
       });
 
       mediaQuery.addEventListener("change", function () {
-        if (root.dataset.theme === "system") {
-          updateButton();
+        if (getConfiguredTheme() === "system") {
+          updatePreviewImage();
         }
       });
 
-      updateButton();
+      applyTheme(getConfiguredTheme());
     })();
   </script>
 </body>
