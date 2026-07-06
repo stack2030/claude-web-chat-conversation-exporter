@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Claude Web Chat Conversation Exporter</title>
+  <meta name="description" content="Private local Claude.ai web chat conversation exporter. Save Claude conversations as Markdown using auditable browser-side JavaScript.">
+  <link rel="stylesheet" href="assets/css/site.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="./">Claude Web Chat Conversation Exporter</a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="https://github.com/stack2030/claude-web-chat-conversation-exporter">GitHub</a>
+        <a href="https://github.com/stack2030/claude-web-chat-conversation-exporter/releases/tag/v0.1.3">Release</a>
+        <a href="https://github.com/stack2030/claude-web-chat-conversation-exporter/issues">Issues</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div class="hero-copy">
+        <p class="eyebrow">Local-first · Auditable · Privacy-preserving</p>
+        <h1>Export Claude.ai web chats to Markdown without installing a browser extension.</h1>
+        <p class="lead">
+          Claude Web Chat Conversation Exporter is a small browser-console script for saving the current Claude.ai web conversation as a local Markdown file.
+        </p>
+
+        <div class="cta-row">
+          <a class="button primary" href="https://github.com/stack2030/claude-web-chat-conversation-exporter">View on GitHub</a>
+          <a class="button" href="https://github.com/stack2030/claude-web-chat-conversation-exporter/releases/tag/v0.1.3">Download v0.1.3</a>
+          <a class="button" href="https://github.com/stack2030/claude-web-chat-conversation-exporter/issues/new/choose">Report an issue</a>
+        </div>
+
+        <p class="small-note">
+          Working as of 2026-07. Claude.ai is a changing web app, so watch the repo and report breakage if the UI changes.
+        </p>
+      </div>
+
+      <div class="hero-image-wrap">
+        <img class="hero-image" src="assets/claude-web-chat-conversation-exporter_v013_00_Header.png" alt="Claude Web Chat Conversation Exporter interface illustration">
+      </div>
+    </section>
+
+    <section class="section container">
+      <h2>Why this exists</h2>
+      <div class="grid three">
+        <article class="card">
+          <h3>Browser extensions are hard to trust</h3>
+          <p>
+            Many exporters require extension permissions, cloud integrations, remote conversion servers, or opaque background scripts. This project keeps the first version simple and auditable.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>AI chats contain real work</h3>
+          <p>
+            Claude conversations often contain plans, code reasoning, research notes, debugging trails, drafts, and reusable project context.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Local export should be boring</h3>
+          <p>
+            Open the conversation, run the script, download a Markdown file. No backend. No analytics. No third-party upload.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container">
+      <h2>What it does</h2>
+      <div class="feature-list">
+        <div>Exports Human messages and final Claude responses.</div>
+        <div>Saves the result as a local Markdown file.</div>
+        <div>Runs from the browser console on the Claude.ai page.</div>
+        <div>Uses the currently visible Claude web session.</div>
+        <div>Skips status/timeline/thinking-only rows in the baseline export.</div>
+        <div>Shows a small progress overlay during export.</div>
+      </div>
+    </section>
+
+    <section class="section container">
+      <h2>Visual demo</h2>
+
+      <h3>Screenshots</h3>
+      <div class="media-grid three">
+        <figure>
+          <img src="assets/claude-web-chat-conversation-exporter_v013_01.png" alt="Exporter screenshot 1">
+          <figcaption>Start export</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/claude-web-chat-conversation-exporter_v013_02.png" alt="Exporter screenshot 2">
+          <figcaption>Progress overlay</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/claude-web-chat-conversation-exporter_v013_03.png" alt="Exporter screenshot 3">
+          <figcaption>Capture complete</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/claude-web-chat-conversation-exporter_v013_04.png" alt="Exporter screenshot 4">
+          <figcaption>Downloaded Markdown</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/claude-web-chat-conversation-exporter_v013_05.png" alt="Exporter screenshot 5">
+          <figcaption>Exported conversation</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/claude-web-chat-conversation-exporter_v013_06.png" alt="Exporter screenshot 6">
+          <figcaption>Local file review</figcaption>
+        </figure>
+      </div>
+
+      <h3>Demo clips</h3>
+      <p class="muted">The demo is split into two continuation clips.</p>
+
+      <div class="media-grid two">
+        <figure>
+          <img src="assets/claude-web-chat-conversation-exporter_v013_a.gif" alt="Claude Web Chat Conversation Exporter demo part A">
+          <figcaption>Part A</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/claude-web-chat-conversation-exporter_v013_b.gif" alt="Claude Web Chat Conversation Exporter demo part B">
+          <figcaption>Part B</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section container">
+      <h2>Use cases</h2>
+      <div class="grid two">
+        <article class="card">
+          <h3>Personal knowledge bases</h3>
+          <p>Save useful Claude conversations into Obsidian, Logseq, GitHub repos, project folders, or local archives.</p>
+        </article>
+        <article class="card">
+          <h3>Coding and technical work</h3>
+          <p>Preserve debugging sessions, architecture decisions, code explanations, and implementation notes.</p>
+        </article>
+        <article class="card">
+          <h3>Multi-AI workflows</h3>
+          <p>Move conversation context between Claude, ChatGPT, Perplexity, local models, and other tools.</p>
+        </article>
+        <article class="card">
+          <h3>Research and planning</h3>
+          <p>Turn long AI discussions into versioned Markdown files you can search, cite, review, and reuse.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container">
+      <h2>Current limitations</h2>
+      <ul class="checklist">
+        <li>Markdown export only.</li>
+        <li>Claude.ai web chat only.</li>
+        <li>No TXT export yet.</li>
+        <li>No generated-file/artifact export yet.</li>
+        <li>No optional thinking/status/timeline export yet.</li>
+        <li>No Chrome extension yet.</li>
+        <li>Claude.ai UI changes may break selectors.</li>
+      </ul>
+    </section>
+
+    <section class="section container">
+      <h2>Project links</h2>
+      <div class="cta-row">
+        <a class="button primary" href="https://github.com/stack2030/claude-web-chat-conversation-exporter">GitHub repository</a>
+        <a class="button" href="https://github.com/stack2030/claude-web-chat-conversation-exporter/releases/tag/v0.1.3">v0.1.3 release</a>
+        <a class="button" href="https://github.com/stack2030/claude-web-chat-conversation-exporter/issues">Roadmap and issues</a>
+        <a class="button" href="README.md">Documentation</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>
+        Independent open-source project. Not affiliated with, endorsed by, sponsored by, or officially associated with Anthropic.
+      </p>
+      <p>
+        <a href="https://stack2030.github.io/">Stack2030</a> ·
+        <a href="https://github.com/stack2030">GitHub</a>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
